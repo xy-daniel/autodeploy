@@ -1,0 +1,257 @@
+.court-content {
+    background-color: #EBEEF5;
+    height: 90vh;
+    width: 75vw;
+    float: right;
+}
+
+.row {
+    height: 90vh;
+}
+
+.court-content-message {
+    border: 1px solid #d3d8de;
+    height: 90vh;
+    width: 75vw;
+    background-color: white;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.court-header {
+    background-color: #302824;
+    height: 7vh;
+    margin-top: 0;
+}
+
+.court-people {
+    padding: 0.5vw;
+    margin-top: 1.5vh;
+    padding-top: 0;
+}
+
+.court-list {
+    height: 90vh;
+    width: 23vw;
+    float: left;
+    margin-top: 1vh;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.title {
+    /*margin-top: 5px;*/
+    /*margin-bottom: 0px;*/
+    /*padding-top: 2px;*/
+    /*padding-left: 10px;*/
+    line-height: 5vh;
+    color: white;
+    padding-left: 2vw;
+    padding-top: 0.8vw;
+}
+
+h4 {
+    background-color: gray;
+    color: white;
+    height: 4vh;
+    padding-top: 1.5vh;
+    padding-left: 0.5vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.btn {
+    border-radius: 5px;
+    height: 22vh;
+    width: 17vw;
+    font-size: 2em;
+    color: white;
+    margin-left: 1vw;
+    margin-top: 1vh;
+    background-color: #00CCFF;
+    border: none;
+    float: left;
+}
+button:focus{outline: 0;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#popup-window {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: 50vh;
+    margin: 10% 20%;
+}
+#popup-content{
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+#set-window {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 50vw;
+    height: 50vh;
+    margin: 10% 20%;
+}
+
+#div1 {
+    background: #eeeeee;
+    width: 40vw;
+    height: 45vh;
+    z-index: 1;
+    margin: 1vw auto;
+    overflow: auto;
+}
+#div3 {
+    background: #eeeeee;
+    width: 40vw;
+    height: 45vh;
+    z-index: 1;
+    margin: 1vw auto;
+    overflow: auto;
+}
+
+span {
+    color: white;
+    cursor: pointer;
+    padding-right: 1.5vw;
+}
+
+p {
+    padding-top: 8vh;
+}
+
+#div2 {
+    background: white;
+    height: 31vh;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#div4 {
+    background: white;
+    height: 31vh;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+#close {
+    background: black;
+    height: 7vh;
+    color: white;
+    margin: 0;
+}
+.close{
+    background: black;
+    height: 7vh;
+    color: white;
+    margin: 0;
+}
+#close-button {
+    float: right;
+    font-size: 2em;
+}
+.close-button{
+    float: right;
+    font-size:2em;
+}
+
+.popup-btn {
+    height: 7vh;
+    width: 8vw;
+    float: right;
+    margin-right: 1vw;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+}
+
+.ul-title {
+    text-align: center;
+    height: 4vh;
+    background-color: black;
+    color: white;
+    font-size: 1em;
+}
+
+.ul-list {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    line-height: 5vh;
+    text-align: center;
+
+}
+
+.li-btn {
+    height: 8vh;
+    width: 20vw;
+    margin: 0;
+    border-style: none;
+    font-size: 1.5em;
+    margin-top: 1vh;
+    border-radius: 5px;
+}
+
+a {
+    right: 0;
+    top: 0;
+    z-index: 999;
+    position: fixed;
+    width: 10vw;
+    height: 4vh;
+    margin: 5px;
+}
+
+.content-title{
+    float: left;
+    font-size: 1em;
+    text-align: right;
+    padding-top: 2vh;
+    margin-top: 10vh;
+    margin-left: 6vw;
+
+}
+
+.content-select{
+    float: right;
+    padding-top: 2vh;
+    text-align: left;
+    margin-top: 10vh;
+    margin-right: 9vw;
+
+}
+.select{
+    width: 10vw;
+    height: 5vh;
+    font-size: 0.8em;
+    margin-right: 0.8vw;
+}
+/*.li-btn:focus {*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*}*/
+.active{
+    background-color: black;
+    color: white;
+}
+
+h2{
+    font-size: 2em;
+    padding-left: 0.5vw;
+}

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ladj.bean.spgl.court.pdcss" xmlns:tns="http://ladj.bean.spgl.court.pdcss"
+                  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ladj.bean.spgl.court.pdcss">
+<xsd:element name="getAhAndKtxxByAH">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getAhAndKtxxByAHResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getCaseSchedule">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in2" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getCaseScheduleResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getAhAndKtxx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in2" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in3" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getAhAndKtxxResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getCode">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getCodeResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="userValidate">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="userValidateResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getJcxx">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getJcxxResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getAhAndKtxxDsrByAH">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="in0" nillable="true" type="xsd:string"/>
+<xsd:element maxOccurs="1" minOccurs="1" name="in1" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="getAhAndKtxxDsrByAHResponse">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element maxOccurs="1" minOccurs="1" name="out" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getAhAndKtxxByAHResponse">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxxByAHResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getCodeRequest">
+    <wsdl:part name="parameters" element="tns:getCode"/>
+  </wsdl:message>
+  <wsdl:message name="userValidateRequest">
+    <wsdl:part name="parameters" element="tns:userValidate"/>
+  </wsdl:message>
+  <wsdl:message name="getJcxxRequest">
+    <wsdl:part name="parameters" element="tns:getJcxx"/>
+  </wsdl:message>
+  <wsdl:message name="getJcxxResponse">
+    <wsdl:part name="parameters" element="tns:getJcxxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAhAndKtxxRequest">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxx"/>
+  </wsdl:message>
+  <wsdl:message name="getCaseScheduleRequest">
+    <wsdl:part name="parameters" element="tns:getCaseSchedule"/>
+  </wsdl:message>
+  <wsdl:message name="getAhAndKtxxDsrByAHRequest">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxxDsrByAH"/>
+  </wsdl:message>
+  <wsdl:message name="getCaseScheduleResponse">
+    <wsdl:part name="parameters" element="tns:getCaseScheduleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAhAndKtxxResponse">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getAhAndKtxxByAHRequest">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxxByAH"/>
+  </wsdl:message>
+  <wsdl:message name="getAhAndKtxxDsrByAHResponse">
+    <wsdl:part name="parameters" element="tns:getAhAndKtxxDsrByAHResponse"/>
+  </wsdl:message>
+  <wsdl:message name="getCodeResponse">
+    <wsdl:part name="parameters" element="tns:getCodeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="userValidateResponse">
+    <wsdl:part name="parameters" element="tns:userValidateResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="ZgjkRecordPortType">
+    <wsdl:operation name="getAhAndKtxxByAH">
+      <wsdl:input name="getAhAndKtxxByAHRequest" message="tns:getAhAndKtxxByAHRequest"/>
+      <wsdl:output name="getAhAndKtxxByAHResponse" message="tns:getAhAndKtxxByAHResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseSchedule">
+      <wsdl:input name="getCaseScheduleRequest" message="tns:getCaseScheduleRequest"/>
+      <wsdl:output name="getCaseScheduleResponse" message="tns:getCaseScheduleResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAhAndKtxx">
+      <wsdl:input name="getAhAndKtxxRequest" message="tns:getAhAndKtxxRequest"/>
+      <wsdl:output name="getAhAndKtxxResponse" message="tns:getAhAndKtxxResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getCode">
+      <wsdl:input name="getCodeRequest" message="tns:getCodeRequest"/>
+      <wsdl:output name="getCodeResponse" message="tns:getCodeResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="userValidate">
+      <wsdl:input name="userValidateRequest" message="tns:userValidateRequest"/>
+      <wsdl:output name="userValidateResponse" message="tns:userValidateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getJcxx">
+      <wsdl:input name="getJcxxRequest" message="tns:getJcxxRequest"/>
+      <wsdl:output name="getJcxxResponse" message="tns:getJcxxResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAhAndKtxxDsrByAH">
+      <wsdl:input name="getAhAndKtxxDsrByAHRequest" message="tns:getAhAndKtxxDsrByAHRequest"/>
+      <wsdl:output name="getAhAndKtxxDsrByAHResponse" message="tns:getAhAndKtxxDsrByAHResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZgjkRecordHttpBinding" type="tns:ZgjkRecordPortType">
+    <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAhAndKtxxByAH">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAhAndKtxxByAHRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAhAndKtxxByAHResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCaseSchedule">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getCaseScheduleRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCaseScheduleResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAhAndKtxx">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAhAndKtxxRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAhAndKtxxResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCode">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getCodeRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCodeResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="userValidate">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="userValidateRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="userValidateResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJcxx">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getJcxxRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getJcxxResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAhAndKtxxDsrByAH">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getAhAndKtxxDsrByAHRequest">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAhAndKtxxDsrByAHResponse">
+        <wsdlsoap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZgjkRecord">
+    <wsdl:port name="ZgjkRecordHttpPort" binding="tns:ZgjkRecordHttpBinding">
+      <wsdlsoap:address location="http://146.12.2.66:9080/court/services/ZgjkRecord"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

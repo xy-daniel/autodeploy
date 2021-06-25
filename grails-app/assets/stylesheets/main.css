@@ -1,0 +1,457 @@
+.jcm-error {
+    bottom: 0;
+    overflow: auto;
+}
+
+.jcm-error .error-desc {
+    text-align: left;
+    color: transparent;
+}
+
+.jcm-error pre, h2 {
+    color: #707478;
+    padding: 20px;
+}
+
+.font-color-error{
+    color: #fff3cd !important;
+}
+
+.court_content {
+    background-color: #0a6aa1;
+    height: 500px;
+    overflow: auto;
+}
+
+.table .table-select {
+    width: 12px;
+    font-size: 14px;
+}
+
+.table td, .table th {
+    vertical-align: inherit;
+}
+
+.plan-show-video {
+    /*min-height: 100vh !important;*/
+    background-color: #f1f3f4;
+}
+.index-show-video {
+    /*min-height: 100vh !important;*/
+    min-height: 200px;
+    /*background-color: #f1f3f4;*/
+}
+.plan-show-video-notfound {
+    width: 100%;
+    height: 700px;
+    background-color: #6e7179;
+    text-align: center;
+}
+
+.plan-show-video-notfound span {
+    color: #f1f3f4;
+    font-size: 36px;
+    line-height: 700px;
+}
+.index-show-video #video{
+    background-color: #16181b;
+}
+.index-show-video-null {
+    width: 100%;
+    height: 346px;
+    background-color: #6e7179;
+    text-align: center;
+}
+
+.index-show-video-null span {
+    color: #f1f3f4;
+    font-size: 36px;
+    line-height: 345px;
+}
+.index-show-msg-null {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+
+.index-show-msg-null span {
+    color: #D0D0D0;
+    font-size: 36px;
+    line-height: 460px;
+}
+
+/*.index-show-video-msg{
+    width: 100%;
+    height: 100%;
+    margin: 15px;
+}*/
+
+.plan-show-info {
+    /*min-height: 100vh !important;*/
+    background-color: #f1f3f4;
+}
+
+.plan-show-info dt {
+    font-size: 18px;
+}
+
+.plan-show-info dd {
+    font-size: 14px;
+}
+
+.plan-show-video-tab-content {
+    padding: 0 15px;
+    background: transparent;
+}
+
+.plan-show-info-tab-content {
+    background: transparent;
+}
+
+.plan-show-info-tab-content pre {
+    width: 100%;
+}
+
+.plan-show-attached-document > li:before {
+    background: #f1f3f4;
+}
+
+.primary .ui-icon {
+    margin-top: 0;
+}
+
+.plan-wizard-btn b {
+    line-height: 45px;
+}
+
+.form-control.form-control-with-bg, .form-control-with-bg .form-control {
+    background: #f1f3f4;
+}
+
+.plan-card {
+    width: 100%;
+    mix-width: 250px;
+    margin: 15px;
+}
+
+.plan-card-img-box {
+    display: inline-block;
+    position: relative;
+}
+
+.plan-card-img img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    max-width: 220px;
+}
+
+.plan-card-img span {
+    position: absolute;
+    top: 0;
+    color: #f1f3f4;
+    display: block;
+    width: 100%;
+}
+
+.plan-card-img-box-start {
+    background-color: #49b6d6;
+}
+
+.plan-card-img-box-plan {
+    background-color: #0a6aa1;
+}
+
+.plan-card-content {
+    display: block;
+    margin: 5px;
+}
+.login-prompt{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1020;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+.index-plan-list-panel{
+    height: 775px;
+    overflow: hidden;
+}
+.index-plan-list-null{
+    width: 100%;
+    height: 400px;
+    text-align: center;
+}
+.index-plan-list-null span{
+    color: #D0D0D0;
+    font-size: 36px;
+    line-height: 300px;
+}
+
+.milestone {
+    text-align: center;
+}
+.milestone-col + .milestone-col {
+    border-left: 1px solid rgba(255,255,255,0.2);
+}
+.milestone .number {
+    font-size: 42px;
+    color: #fff;
+    font-weight: 300;
+}
+.milestone .title {
+    color: #8F8E8E;
+}
+.login.login-v2 .login-header{
+    width:550px;
+}
+.login.login-v2 .login-content{
+    /*padding-left:50px;*/
+    /*padding-right:50px;*/
+}
+.login .login-header .brand img:last-child{
+    margin-top:-10px!important;
+
+}
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: rgba(0,0,0,1) !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/*主案件样式*/
+.mainCase {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.selectedCase {
+    position: fixed;
+    right: 2%;
+    width: 100%;
+    border-style: solid;
+    margin:auto 2% auto auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.caseTable {
+    margin-left: 2%
+}
+
+
+
+/* v2 views style */
+.v2-bg{
+    background-color: #e2ecf9;
+}
+.v2-bg-white{
+    background: white;
+}
+.v2-form-group-item{
+    padding: 15px;
+}
+.v2-header-fixed {
+    padding-top: 73px;
+}
+.v2-bg-min-h{
+    min-height: 800px;
+    border-radius: 5px;
+}
+.v2-form-group form{
+    width: 100%;
+}
+/* v2 views style 首页navbar*/
+.header.navbar-v2-index {
+    background-image: linear-gradient(#00aaeb, #005c99);
+}
+.header.navbar-v2-index .brand,
+.header.navbar-v2-index .navbar-brand {
+    color: white;
+}
+.header.navbar-v2-index .navbar-toggle .icon-bar {
+    background: #2d353c;
+}
+.header.navbar-v2-index .navbar-nav > li > a,
+.header.navbar-v2-index .navbar-nav > li .dropdown-toggle {
+    color: white;
+}
+.header.navbar-v2-index .navbar-nav .open .dropdown-menu > li > a {
+    color: #333;
+}
+/* v2 views style 排期页navbar*/
+.header.navbar-v2-plan {
+    background: #b7cce9;
+    height: 73px;
+}
+.header.navbar-v2-plan .brand,
+.header.navbar-v2-plan .navbar-brand {
+    color: white;
+}
+.header.navbar-v2-plan .navbar-toggle .icon-bar {
+    background: #2d353c;
+}
+.header.navbar-v2-plan .navbar-nav > li > a,
+.header.navbar-v2-plan .navbar-nav > li .dropdown-toggle {
+    color: white;
+}
+.header.navbar-v2-plan .navbar-nav .open .dropdown-menu > li > a {
+    color: #333;
+}
+.navbar-v2-plan-btn-list img{
+    margin-right: 15px;
+}
+.navbar-v2-plan-btn-list img:hover {
+}
+.v2-navbar-header-logo{
+    position: absolute;
+    z-index: -1;
+}
+.navbar-v2-plan-btn-list{
+    position: absolute;
+    left: 15%;
+    bottom: 0;
+}
+/* v2 views style 业务管理页navbar*/
+.header.navbar-v2-business {
+    background: #b7cce9;
+    height: 73px;
+}
+.header.navbar-v2-business .brand,
+.header.navbar-v2-business .navbar-brand {
+    color: white;
+}
+.header.navbar-v2-business .navbar-toggle .icon-bar {
+    background: #2d353c;
+}
+.header.navbar-v2-business .navbar-nav > li > a,
+.header.navbar-v2-business .navbar-nav > li .dropdown-toggle {
+    color: white;
+}
+.header.navbar-v2-business .navbar-nav .open .dropdown-menu > li > a {
+    color: #333;
+}
+.navbar-v2-business-btn-list img{
+    margin-right: 15px;
+    margin-top: 5px;
+}
+.navbar-v2-business-btn-list img:hover {
+}
+.v2-navbar-header-logo{
+    position: absolute;
+    z-index: -1;
+}
+.navbar-v2-business-btn-list{
+    position: absolute;
+    left: 15%;
+    bottom: 0;
+}
+@media (min-width: 400px) {
+    .header.navbar-v2-business {
+        height: 165px;
+    }
+}
+
+@media (min-width: 576px) {
+    .navbar-nav-plan{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-plan-btn-list{
+        position: absolute;
+        left: 15%;
+        bottom: 0;
+    }
+
+    .header.navbar-v2-business {
+        height: 130px;
+    }
+
+    .navbar-v2-business{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-business-btn-list{
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav-plan{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-plan-btn-list{
+        position: absolute;
+        left: 30%;
+        bottom: 0;
+    }
+
+    .navbar-v2-business{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-business-btn-list{
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-nav-plan{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-plan-btn-list{
+        position: absolute;
+        left: 30%;
+        bottom: 0;
+    }
+
+    .navbar-v2-business{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-business-btn-list{
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-nav-plan{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-plan-btn-list{
+        position: absolute;
+        left: 35%;
+        bottom: 0;
+    }
+
+    .header.navbar-v2-business {
+        height: 73px;
+    }
+
+    .navbar-v2-business{
+        margin-top: 0 !important;
+    }
+    .navbar-v2-business-btn-list{
+        position: absolute;
+        left: 5%;
+        bottom: 0;
+    }
+}
+
+@media (min-width: 1500px) {
+    .navbar-v2-business{
+        margin-top: 0 !important;
+    }
+
+
+    .navbar-v2-business-btn-list{
+        position: absolute;
+        left: 15%;
+        bottom: 0;
+    }
+}
+
+
+

@@ -1,0 +1,346 @@
+---
+grails:
+  profile: web
+  codegen:
+    defaultPackage: technologcourt
+  gorm:
+    reactor:
+      # Whether to translate GORM events into Reactor events
+      # Disabled by default for performance reasons
+      events: false
+info:
+  app:
+    name: '@info.app.name@'
+    version: '@info.app.version@'
+    grailsVersion: '@info.app.grailsVersion@'
+spring:
+  main:
+    banner-mode: "off"
+  groovy:
+    template:
+      check-template-location: false
+
+# Spring Actuator Endpoints are Disabled by Default
+endpoints:
+  enabled: false
+  jmx:
+    enabled: true
+
+---
+grails:
+  mime:
+    disable:
+      accept:
+        header:
+          userAgents:
+            - Gecko
+            - WebKit
+            - Presto
+            - Trident
+    types:
+      all: '*/*'
+      atom: application/atom+xml
+      css: text/css
+      csv: text/csv
+      form: application/x-www-form-urlencoded
+      html:
+        - text/html
+        - application/xhtml+xml
+      js: text/javascript
+      json:
+        - application/json
+        - text/json
+      multipartForm: multipart/form-data
+      pdf: application/pdf
+      rss: application/rss+xml
+      text: text/plain
+      hal:
+        - application/hal+json
+        - application/hal+xml
+      xml:
+        - text/xml
+        - application/xml
+  urlmapping:
+    cache:
+      maxsize: 1000
+  controllers:
+    defaultScope: singleton
+    upload:
+      maxFileSize: 20971520
+      maxRequestSize: 20971520
+  converters:
+    encoding: UTF-8
+  views:
+    default:
+      codec: html
+    gsp:
+      encoding: UTF-8
+      htmlcodec: xml
+      codecs:
+        expression: html
+        scriptlets: html
+        taglib: none
+        staticparts: none
+endpoints:
+  jmx:
+    unique-names: true
+
+---
+#数据库相关配置
+hibernate:
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
+#第一数据源
+dataSource:
+  pooled: true
+  jmxExport: true
+  driverClassName: com.mysql.jdbc.Driver
+  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  username: root
+  password: dcs2011
+#第二数据源
+dataSources:
+  mem:
+    pooled: true
+    jmxExport: true
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+
+environments:
+  development:
+    dataSource:
+      dbCreate: update
+      url: jdbc:mysql://192.168.0.202:3306/techcrt?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    dataSources:
+      mem:
+        dbCreate: update
+        url: jdbc:h2:file:../techcrt/db.h2;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+  test:
+    dataSource:
+      dbCreate: update
+      url: jdbc:mysql://127.0.0.1:3306/techcrt?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+    dataSources:
+      mem:
+        dbCreate: update
+        url: jdbc:h2:file:/usr/local/techcrt/db.h2;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+  production:
+    dataSource:
+      dbCreate: update
+#      mlfy152.20.147.209
+      url: jdbc:mysql://127.0.0.1:3306/techcrt?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&autoReconnect=true
+      properties:
+        jmxEnabled: true
+        initialSize: 5
+        maxActive: 50
+        minIdle: 5
+        maxIdle: 25
+        maxWait: 10000
+        maxAge: 600000
+        timeBetweenEvictionRunsMillis: 5000
+        minEvictableIdleTimeMillis: 60000
+        validationQuery: SELECT 1
+        validationQueryTimeout: 3
+        validationInterval: 15000
+        testOnBorrow: true
+        testWhileIdle: true
+        testOnReturn: false
+        jdbcInterceptors: ConnectionState
+        defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+    dataSources:
+      mem:
+        dbCreate: update
+        url: jdbc:h2:file:/usr/local/techcrt/db.h2;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+        properties:
+          jmxEnabled: true
+          initialSize: 5
+          maxActive: 50
+          minIdle: 5
+          maxIdle: 25
+          maxWait: 10000
+          maxAge: 600000
+          timeBetweenEvictionRunsMillis: 5000
+          minEvictableIdleTimeMillis: 60000
+          validationQuery: SELECT 1
+          validationQueryTimeout: 3
+          validationInterval: 15000
+          testOnBorrow: true
+          testWhileIdle: true
+          testOnReturn: false
+          jdbcInterceptors: ConnectionState
+          defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+---
+grails:
+  corss:
+    enabled: true
+  plugin:
+    console:
+      enabled: true
+    springsecurity:
+      userLookup:
+        usernamePropertyName: username
+        userDomainClassName: com.hxht.techcrt.User
+        authorityJoinClassName: com.hxht.techcrt.UserRole
+      authority:
+        className: com.hxht.techcrt.Role
+      logout:
+        postOnly: false
+      auth:
+        loginFormUrl: /login/auth
+      providerNames:
+        - tcAuthenticationProvider
+        - anonymousAuthenticationProvider
+        - rememberMeAuthenticationProvider
+      securityConfigType: InterceptUrlMap
+      interceptUrlMap: [
+      {pattern: '/**/favicon.ico',            access: ['permitAll']},
+      {pattern: '/error',                     access: ['permitAll']},
+      {pattern: '/authority',                 access: ['permitAll']},
+      {pattern: '/assets/**',                 access: ['permitAll']},
+      {pattern: '/login/**',                  access: ['permitAll']},
+      {pattern: '/logout/**',                 access: ['permitAll']},
+      {pattern: '/console/**',                access: ['permitAll']},
+      {pattern: '/static/console/**',         access: ['permitAll']},
+      {pattern: '/api/**',                    access: ['permitAll']},
+      {pattern: '/device/**',                 access: ['permitAll']},
+      {pattern: '/bailiff/**',                access: ['permitAll']},
+      {pattern: '/wfy/**',                    access: ['permitAll']},
+      {pattern: '/bm/**',                     access: ['permitAll']},
+      {pattern: '/leaderApi/**',              access: ['permitAll']},
+      {pattern: '/message/**',                access: ['permitAll']},
+      {pattern: '/leader/**',                 access: ['permitAll']},
+      {pattern: '/stomp/**',                  access: ['permitAll']},
+      {pattern: '/source/**',                 access: ['permitAll']},
+      {pattern: '/manyRemote/**',             access: ['permitAll']},
+      {pattern: '/remoteService/**',          access: ['permitAll']},
+      {pattern: '/services/**',               access: ['permitAll']},
+      {pattern: '/zhongheng/**',              access: ['permitAll']},
+      {pattern: '/apiOfflinePlan/**',         access: ['permitAll']},
+      {pattern: '/apiNotice/**',              access: ['permitAll']},
+      {pattern: '/**',                        access: ['ROLE_SUPER','ROLE_/','ROLE_ADMIN','ROLE_/plan/list','ROLE_/charts/index','ROLE_/distance/index',
+                                                       'ROLE_/mountDisk/list','ROLE_/systemTitle/edit','ROLE_/osInfo/list','ROLE_CONFIG','ROLE_MONITOR']}
+      ]
+
+---
+tc:
+  version: ---- tc version 1.0.0 build 20210625 ----
+# 部署地点：
+#   福建fujian
+#   陕西shanxi
+#   深圳shenzhen
+#   山东shandong
+#   辽宁liaoning
+#   云南yunnan
+  deployPlace: shandong
+  signature:
+    #        path: E:\usr\local\tc\signature\
+    path: /usr/local/movies/tc/signature/
+  trial:
+    note:
+#       path: E:\usr\local\tc\trial\note
+      path: /usr/local/movies/
+    comment:
+      path: /usr/local/tc/comment/
+    images:
+      #视频截图图片的上传路径
+      path: /usr/local/tc/trial/screenshot
+    fileRaster:
+      #生成音频文件的光栅路径（目前只有深圳中院在用）
+      path: /usr/local/movies/luyin
+  function:
+    # 控制是否显示羁押室语音传唤功能：开启 true 关闭 false。（目前只有深圳中院用。）
+    voice: false
+    # 控制是否显示法警报警功能：开启 true 关闭 false。（目前只有深圳中院和云南用。）
+    warn: false
+  remote:
+    report:
+      #   控制法庭管理中上报远程法庭按钮是否显示（true:显示，false:不显示）。（目前只有深圳中院在使用）
+      is-allow: false
+      #   往最高院推送远程法庭时，最高院的IP地址---->is-allow为true时这个配置才有用,false时这个配置没有作用
+      path: http://192.0.154.12:6130
+    local:
+      #   就是部署的这个服务的IP和端口，这是给最最高院推送的数据包括wsdl文件地址，如例---->"http://146.12.1.64:25577/tc/services/iremotetrail?wsdl"
+      wsdl-path-prefix: http://146.12.1.64:25577
+
+  license:
+    subject: hxht_tc_license
+    publicAlias: publicCert
+    storePass: public_bjhxht2020
+    licensePath: /home/hxht/lic/license.lic
+    publicKeysStorePath: /home/hxht/lic/publicCerts.keystore
+#    licensePath: D:/license.lic
+#    publicKeysStorePath: D:/publicCerts.keystore
+
+server:
+  servlet:
+    session:
+      timeout: 7200
+  context-path: '/tc'
+  port: 9600
+
+jwt:
+  info:
+    secret: XXXXX
+    expires: 86400000
+    tokenExclude: /api/token
+
+#对接数据的接口部署时需要修改project_work:
+#   深圳罗湖为luohu
+#   陕西慧谷为huigu
+#   福建榕基为rongji
+#   深圳中院为dongruan
+#   山东sybase数据库为shandong
+#   云南、辽宁通达海为tongdahai
+#   辽宁华夏为huaxia
+#   深圳北明接口为beiming
+#任意一个或多个接口可用英文格式的","分割填写,如（tongdahai,huaxia）,若不需要对接则改成other.
+syncData:
+  project_work: shandong
+#  交大慧谷配置
+  huigu:
+    url: http://154.10.15.156:8080/ajgl/cxf/PqWebService?wsdl
+  luohu:
+    planurl: http://146.12.17.70:8080/api/pqpt/v1/pq/query
+    courturl: http://146.12.17.70:8080/api/pqpt/v1/TrialCourt/query
+  rongji:
+    url: api/gxjh/yjwgx/services/ktxx?wsdl
+#        sync_url: http://140.0.187.164:8080/CMPManage/pipe/getCourtSysRelation
+  zhongheng:
+#    中恒信授权码
+    authorizationCode: fromzhtohxht2020
+  tongdaihai:
+#    getRyFileAddress: E:/GetRy.xml
+    getRyFileAddress: /usr/local/movies/webservice/GetRy.xml
+  huaxia:
+    url: http://134.25.0.164:8080/rcs-plug/services/rcsDataInput?wsdl
+
+#对接罗湖视频评查系统的接口
+verification:
+  #罗湖核查用的ip
+  vc_ip_port: 146.12.17.162:80 #评查系统对接的ip还有端口
+
+#对接深圳中院太极接口开发
+taichi:
+  url: http://146.12.2.185:8080/onlineArchive/api/szftFiles
+  token: 8e488466-07ee-11e9-a487-286ed488c69d
+  showVideo:
+    #深圳新系统地址
+    showUrlNew: 146.12.1.62:80/tc
+    #深圳老系统地址
+    showUrlOld: 146.12.1.61:19000
+
+#对接福建微法院相关配置，北明互联网庭审平台。
+weifayuan:
+  flag: 1
+  interface:
+    httpPath: https://testinternetcourt.odrcloud.cn
+    username: 18020004001
+    password: 88888888
+    appName: weitingshen
+    cType: PC
+    loginType: WORK_USER_LOGIN_TYPE
+
+#页面版本v1或者v2,目前只有福建用V2版本页面
+pageVersion: v1
