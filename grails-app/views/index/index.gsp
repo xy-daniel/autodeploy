@@ -1,12 +1,11 @@
-<%@ page import="com.hxht.autodeploy.PlanStatus" %>
 <!DOCTYPE html>
-<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 8]> <html class="ie8" lang="zh"> <![endif]-->
 <!--[if !IE]><!-->
 <html>
 <!--<![endif]-->
 <head>
     <meta charset="utf-8"/>
-    <title>科技法庭管理系统</title>
+    <title>自动化运维平台</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <meta content="" name="description"/>
     <meta content="" name="author"/>
@@ -16,9 +15,6 @@
     <!-- ================== END BASE CSS STYLE ================== -->
 
     <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-    <asset:stylesheet href="bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet"/>
-    <asset:stylesheet href="index/index.css" rel="stylesheet"/>
-    <asset:stylesheet href="bootstrap-treeview/bootstrap-treeview.min.css" rel="stylesheet"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
 
@@ -35,83 +31,105 @@
     <!-- end #header -->
 
     <!-- begin #sidebar -->
-    <g:render template="/layouts/base_sidebar" model="[active: 10000]"/>
+    <g:render template="/layouts/base_sidebar" model="[active: 0]"/>
     <!-- end #sidebar -->
     <div id="content" class="content">
-
-        <input id="pageVersion" value="${grailsApplication.config.pageVersion}" hidden="hidden"/>
+        <div>
+            操作系统型号：${os}
+        </div>
 
         <div class="row">
-            <div class="col-md-2">
-                <div class="col-sm-12 court-height">
-                    <p class="form-group form-bottom">
-                        <input class="form-control" id="input-search" placeholder="请输入要查询的法庭" value="">
-                    </p>
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget-stats bg-black-lighter">
+                    <div class="stats-icon"><i class="fa fa-desktop"></i></div>
 
-                    <div id="treeview2" class=""></div>
-                </div>
-            </div>
+                    <div class="stats-info">
+                        <h4>主机数量</h4>
 
-            <div class="col-md-4">
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <div class="btn-group pull-right">
-                            <button type="button" class="btn btn-success btn-xs">所选日期完整列表</button>
-                        </div>
-                        <input type="hidden" name="date" value="" id="datetime"/>
-                        <h4 class="panel-title">排期分布</h4>
+                        <p>${device}</p>
                     </div>
 
-                    <div class="index-plan-list-panel" data-scrollbar="true">
-                        <div id="schedule-calendar" class="bootstrap-calendar"></div>
-
-                        <div class="list-group index-plan-list">
-                            <div class="index-plan-list-null">
-                                <span>今日期无排期数据</span>
-                            </div>
-                        </div>
+                    <div class="stats-link">
+                        <a href="device/list">详情 <i class="fa fa-arrow-alt-circle-right"></i></a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget-stats bg-black-lighter">
+                    <div class="stats-icon"><i class="fa fa-desktop"></i></div>
 
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <div class="btn-group pull-right">
-                            <button type="button" class="btn btn-success btn-xs plan-show">案件详情</button>
-                        </div>
-                        <h4 class="panel-title court-plan">今日期无排期数据</h4>
+                    <div class="stats-info">
+                        <h4>数据表数量</h4>
+
+                        <p>${dataTable}</p>
                     </div>
 
-                    <div class="index-plan-list-panel b-t-0" data-scrollbar="true">
-                        <div class="col-md-12 p-l-0 p-r-0">
-                            <div class="row index-show-video">
-                                <div class="col-md-8">
-                                    <sec:ifNotGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_LIVE'>
-                                        <div id="videoNotShow">
-                                            <div class="index-show-video-null">
-                                                <span>视频无直播权限</span>
-                                            </div>
-                                        </div>
-                                    </sec:ifNotGranted>
-                                    <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_LIVE'>
-                                        <div id="video"></div>
-                                    </sec:ifAnyGranted>
-                                </div>
-
-                                <div class="col-md-4 p-l-0">
-                                    <div class="index-show-video-msg" data-scrollbar="true"></div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="index-show-video-bigmsg" data-scrollbar="true"></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="stats-link">
+                        <a href="dataTable/list">详情 <i class="fa fa-arrow-alt-circle-right"></i></a>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget-stats bg-black-lighter">
+                    <div class="stats-icon"><i class="fa fa-desktop"></i></div>
+
+                    <div class="stats-info">
+                        <h4>应用数量</h4>
+
+                        <p>${app}</p>
+                    </div>
+
+                    <div class="stats-link">
+                        <a href="app/list">详情 <i class="fa fa-arrow-alt-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="widget widget-stats bg-black-lighter">
+                    <div class="stats-icon"><i class="fa fa-desktop"></i></div>
+
+                    <div class="stats-info">
+                        <h4>任务数量</h4>
+
+                        <p>${task}</p>
+                    </div>
+
+                    <div class="stats-link">
+                        <a href="task/list">详情 <i class="fa fa-arrow-alt-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-inverse width-full m-l-10 m-r-10" data-sortable-id="index-1">
+                <div class="panel-heading">
+                    <div class="panel-heading-btn">
+                        <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                           data-click="panel-expand">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-success"
+                           data-click="panel-reload">
+                            <i class="fa fa-redo"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-warning"
+                           data-click="panel-collapse">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-danger"
+                           data-click="panel-remove">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                    <h4 class="panel-title">监测分析(使用率/分钟)</h4>
+                </div>
+
+                <div class="panel-body">
+                    <div id="infoChart" class="height-sm"></div>
                 </div>
             </div>
         </div>
@@ -121,11 +139,10 @@
 
 <g:render template="/layouts/base_bottom"/>
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
-<asset:javascript src="bootstrap-calendar/js/bootstrap_calendar.js"/>
-<asset:javascript src="flvjs/flv.min.js"/>
-<asset:javascript src="DPlayer/DPlayer.min.js"/>
-<asset:javascript src="hls/hls.min.js"/>
-<asset:javascript src="bootstrap-treeview/bootstrap-treeview.min.js"/>
+<asset:javascript src="flot/jquery.flot.min.js"/>
+<asset:javascript src="flot/jquery.flot.time.min.js"/>
+<asset:javascript src="flot/jquery.flot.resize.min.js"/>
+<asset:javascript src="flot/jquery.flot.pie.min.js"/>
 <asset:javascript src="index/index.js"/>
 
 <script>

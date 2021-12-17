@@ -1,5 +1,6 @@
 package com.hxht.autodeploy
 
+import com.hxht.autodeploy.manager.authority.User
 import grails.plugin.springsecurity.SpringSecurityService
 import org.grails.encoder.CodecLookup
 import org.grails.encoder.Encoder
@@ -8,7 +9,7 @@ import org.grails.web.errors.ErrorsViewStackTracePrinter
 import org.springframework.util.StringUtils
 
 class RenderTagLib {
-    static namespace = "tc"
+    static namespace = "auto"
     SpringSecurityService springSecurityService
     CodecLookup codecLookup
     ErrorsViewStackTracePrinter errorsViewStackTracePrinter

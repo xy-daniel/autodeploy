@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 8]> <html class="ie8" lang="zh"> <![endif]-->
 <!--[if !IE]><!-->
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -20,6 +20,7 @@
     <asset:stylesheet href="DataTables/extensions/Responsive/css/responsive.bootstrap.min.css"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -36,7 +37,7 @@
     <!-- end #header -->
 
     <!-- begin #sidebar -->
-    <g:render template="/layouts/base_sidebar" model="[active: 30109]"/>
+    <g:render template="/layouts/base_sidebar" model="[active: 50101]"/>
     <!-- end #sidebar -->
 
     <!-- begin #content -->
@@ -58,7 +59,8 @@
                     <!-- begin panel-heading -->
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                               data-click="panel-expand"><i class="fa fa-expand"></i></a>
                         </div>
                         <h4 class="panel-title">角色列表</h4>
                     </div>
@@ -67,22 +69,23 @@
                     <div class="panel-body">
                         <div class="table-btn-row m-b-15">
                             <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_/role/add'>
-                                <g:link controller="role" action="add" class="btn btn-sm btn-inverse btn-add"><i class="fa fa-plus m-r-5"></i> 添加新角色</g:link>
+                                <g:link controller="role" action="add" class="btn btn-sm btn-inverse btn-add"><i
+                                        class="fa fa-plus m-r-5"></i> 添加角色</g:link>
                             </sec:ifAnyGranted>
                             <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_/role/del'>
-                                <a href="javascript:void(0);" id="checkedBtn" class="btn btn-sm btn-inverse btn-del"><i class="fa fa-times m-r-5"></i> 删除所选角色</a>
+                                <a href="javascript:void(0);" id="checkedBtn" class="btn btn-sm btn-inverse btn-del"><i
+                                        class="fa fa-times m-r-5"></i> 删除所选角色</a>
                             </sec:ifAnyGranted>
                         </div>
-                        <table id="data-table" class="table table-striped table-bordered display" style="width:100%">
+                        <table id="data-table" class="table table-striped table-bordered display width-full">
                             <thead>
                             <tr>
                                 <th class="with-checkbox">
                                     <div class="checkbox checkbox-css">
-                                        <input type="checkbox" value="" id="table_checkbox_all" />
+                                        <input type="checkbox" value="" id="table_checkbox_all"/>
                                         <label for="table_checkbox_all">&nbsp;</label>
                                     </div>
                                 </th>
-                                <th class="text-nowrap">编号</th>
                                 <th class="text-nowrap">排序</th>
                                 <th class="text-nowrap">角色名称</th>
                                 <th class="text-nowrap">描述</th>

@@ -1,49 +1,30 @@
-/**
- * Created by sakuri on 2019/8/13.
- */
 ;-function (window) {
-    'use strict';
-    var ready = {};
-    var option = {};
-    var init = function () {
-        init_ready();//加载预设变量
-        init_event();//初始化页面事件
-    };
-
-    function init_ready() {//初始化预设值
-    }
-
-    function init_event() {//初始化页面事件
-        core.render_table();
-        core.delCheckedBtn();
-    }
-
     //内部核心属性
-    var core = {
+    const core = {
         /**
          * 删除所选择的日志列表
          */
-        delCheckedBtn:function(){
-            $("#checkedBtn").click(function () {
+        delCheckedBtn: function () {
+            $("#checkedBtn").bind('click', function () {
                 swal({
-                    title:"确认删除?",
-                    type:"warning",
-                    showCancelButton:true,
-                    cancelButtonText:'取 消',
-                    cancelButtonColor:'#b9b9b9',
-                    showConfirmButton:true,
-                    confirmButtonText:'确 认',
-                    confirmButtonColor:"#dd6b55",
-                    closeOnConfirm:false,
-                    closeOnCancel:true
-                },function(){
-                    var checkedBox = document.getElementsByName("checkbox-select");
-                    var roleIds = "";
-                    for (var i=0; i<checkedBox.length; i++){
-                        if (checkedBox[i].checked){
-                            if (roleIds==""){
+                    title: "确认删除?",
+                    type: "warning",
+                    showCancelButton: true,
+                    cancelButtonText: '取 消',
+                    cancelButtonColor: '#b9b9b9',
+                    showConfirmButton: true,
+                    confirmButtonText: '确 认',
+                    confirmButtonColor: "#dd6b55",
+                    closeOnConfirm: false,
+                    closeOnCancel: true
+                }, function () {
+                    const checkedBox = document.getElementsByName("checkbox-select");
+                    let roleIds = "";
+                    for (let i = 0; i < checkedBox.length; i++) {
+                        if (checkedBox[i].checked) {
+                            if (roleIds === "") {
                                 roleIds = checkedBox[i].value;
-                            }else{
+                            } else {
                                 roleIds = roleIds + "," + checkedBox[i].value;
                             }
                         }
@@ -51,40 +32,40 @@
                     $.get(
                         contextPath + 'role/del',
                         {
-                            roleIds:roleIds
+                            roleIds: roleIds
                         },
                         function (result) {
-                            if (result.code==0){
+                            if (result.code === 0) {
                                 swal({
                                     title: '删除成功!',
                                     type: 'success',
-                                    confirmButtonText:'确 认'
-                                },function () {
+                                    confirmButtonText: '确 认'
+                                }, function () {
                                     window.location.href = contextPath + 'role/list';
                                 });
-                            }else if (result.code===410){
+                            } else if (result.code === 410) {
                                 swal({
                                     title: '请选择数据',
                                     type: 'error',
-                                    confirmButtonText:'确 认'
+                                    confirmButtonText: '确 认'
                                 })
-                            }else{
+                            } else {
                                 swal({
                                     title: '数据删除失败，请重新操作...',
                                     type: 'error',
-                                    confirmButtonText:'确 认'
-                                },function () {
+                                    confirmButtonText: '确 认'
+                                }, function () {
                                     window.location.href = contextPath + 'role/list';
                                 });
                             }
-                        },'json'
+                        }, 'json'
                     )
                 })
             })
         },
         handleSelectAll: function () {
-            $('#table_checkbox_all').click(function (e) {
-                var checkbox = $("input[type='checkbox']");
+            $('#table_checkbox_all').bind('click', function (e) {
+                const checkbox = $("input[type='checkbox']");
                 if ($(this).is(':checked')) {
                     checkbox.prop("checked", true);
                 } else {
@@ -92,16 +73,17 @@
                 }
             });
             //每一次的小checkbox点击事件
-            $(".ck").click(function () {
+            $(".ck").bind('click', function () {
                 //获取所有的小的checkbox
-                var checkboxs = $(".ck");
-                for (var i=0; i<checkboxs.length; i++){
-                    if (!checkboxs[i].checked){
-                        $('#table_checkbox_all').prop("checked", false);
+                const table_checkbox_all = $("#table_checkbox_all");
+                const checkBoxes = $(".ck");
+                for (let i = 0; i < checkBoxes.length; i++) {
+                    if (!checkBoxes[i].checked) {
+                        table_checkbox_all.prop("checked", false);
                         return;
                     }
                 }
-                $('#table_checkbox_all').prop("checked", true);
+                table_checkbox_all.prop("checked", true);
             })
         },
         render_table: function () {
@@ -150,13 +132,6 @@
                                 '</div>'
                         }
                     },
-                    //编号
-                    {
-                        "mDataProp": "id",
-                        "mRender": function (data, type, full) {
-                            return data
-                        }
-                    },
                     //排序
                     {
                         "mDataProp": "sequence",
@@ -183,10 +158,9 @@
                         "mDataProp": "id",//获取列数据，跟服务器返回字段一致
                         "sClass": "center",//显示样式
                         "mRender": function (data, type, full) {//返回自定义的样式
-                            var html =  '<div class="table-text">';
-                            html +=  '<a href="'+contextPath+'role/edit/' + data + '" class="btn btn-inverse btn-xs m-r-5 btn-enabled">编辑</a>';
-                            /*html +=  '<a href="'+contextPath+'role/editMenu/' + data + '" class="btn btn-inverse btn-xs m-r-5 btn-enabled">设置菜单权限</a>';*/
-                            html +=  '</div>';
+                            let html = '<div class="table-text">';
+                            html += '<a href="' + contextPath + 'role/edit/' + data + '" class="btn btn-inverse btn-xs m-r-5 btn-enabled">编辑</a>';
+                            html += '</div>';
                             return html
                         }
                     }
@@ -197,8 +171,24 @@
             });
         }
     };
+    'use strict';
+    const ready = {};
+    const option = {};
+    const init = function () {
+        init_ready();//加载预设变量
+        init_event();//初始化页面事件
+    };
+
+    function init_ready() {//初始化预设值
+    }
+
+    function init_event() {//初始化页面事件
+        core.render_table();
+        core.delCheckedBtn();
+    }
+
     //对外公开的方法
-    var page = {};
+    const page = {};
     init();
     window.p = page;
 }(window);

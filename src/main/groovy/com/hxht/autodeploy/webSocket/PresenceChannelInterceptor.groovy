@@ -1,6 +1,5 @@
 package com.hxht.autodeploy.webSocket
 
-
 import org.springframework.messaging.Message
 import org.springframework.messaging.MessageChannel
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor
@@ -18,19 +17,14 @@ class PresenceChannelInterceptor extends ChannelInterceptorAdapter {
         def name = sha.user?.name
         switch (sha.getCommand()) {
             case "CONNECT":
-//                println "${name}上线"
                 break
             case "DISCONNECT":
-//                println "${name}下线"
                 break
             case "SUBSCRIBE":
-//                println "${name}订阅"
                 break
             case "SEND":
-//                println "${name}发送"
                 break
             case "UNSUBSCRIBE":
-//                println "${name}取消订阅"
                 break
             default:
                 break

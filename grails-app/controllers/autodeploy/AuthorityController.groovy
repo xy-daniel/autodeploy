@@ -1,7 +1,7 @@
 package autodeploy
 
-import com.hxht.techcrt.Resp
-import com.hxht.techcrt.enums.RespType
+import com.hxht.autodeploy.enums.Resp
+import com.hxht.autodeploy.enums.RespType
 
 
 class AuthorityController {
@@ -13,7 +13,7 @@ class AuthorityController {
         } else {
             response.setContentType("application/json; charset=utf-8")
             response.status = 300
-            render Resp.toJson(RespType.NO_AUTHORIZED, "")
+            render Resp.toJson(RespType.NO_AUTHORIZED)
         }
 
     }

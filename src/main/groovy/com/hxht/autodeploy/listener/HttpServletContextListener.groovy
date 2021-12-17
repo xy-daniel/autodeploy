@@ -9,10 +9,7 @@ import java.sql.Driver
 import java.sql.DriverManager
 import java.sql.SQLException
 
-/**
- * Created by Voyager on 2016/11/30.
- */
-class HttpServletContextListener implements ServletContextListener{
+class HttpServletContextListener implements ServletContextListener {
     private static final Log log = LogFactory.getLog(HttpServletContextListener.class);
 
     @Override

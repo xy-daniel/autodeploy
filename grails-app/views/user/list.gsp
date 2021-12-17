@@ -4,11 +4,11 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -20,6 +20,7 @@
     <asset:stylesheet href="DataTables/extensions/Responsive/css/responsive.bootstrap.min.css"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -36,7 +37,7 @@
     <!-- end #header -->
 
     <!-- begin #sidebar -->
-    <g:render template="/layouts/base_sidebar" model="[active: 30107]"/>
+    <g:render template="/layouts/base_sidebar" model="[active: 50001]"/>
     <!-- end #sidebar -->
 
     <!-- begin #content -->
@@ -58,7 +59,8 @@
                     <!-- begin panel-heading -->
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                               data-click="panel-expand"><i class="fa fa-expand"></i></a>
                         </div>
                         <h4 class="panel-title">用户列表</h4>
                     </div>
@@ -67,18 +69,20 @@
                     <div class="panel-body">
                         <div class="table-btn-row m-b-15">
                             <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_/user/add'>
-                                <g:link controller="user" action="add" class="btn btn-sm btn-inverse btn-add"><i class="fa fa-plus m-r-5"></i> 添加新用户</g:link>
+                                <g:link controller="user" action="add" class="btn btn-sm btn-inverse btn-add"><i
+                                        class="fa fa-plus m-r-5"></i> 添加用户</g:link>
                             </sec:ifAnyGranted>
                             <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_/user/del'>
-                                <a href="javascript:void(0);" id="checkedBtn" class="btn btn-sm btn-inverse btn-del"><i class="fa fa-times m-r-5"></i> 删除所选用户</a>
+                                <a href="javascript:void(0);" id="checkedBtn" class="btn btn-sm btn-inverse btn-del"><i
+                                        class="fa fa-times m-r-5"></i> 删除所选用户</a>
                             </sec:ifAnyGranted>
                         </div>
-                        <table id="data-table" class="table table-striped table-bordered display" style="width:100%">
+                        <table id="data-table" class="table table-striped table-bordered display width-full">
                             <thead>
                             <tr>
                                 <th class="with-checkbox">
                                     <div class="checkbox checkbox-css">
-                                        <input type="checkbox" value="" id="table_checkbox_all" />
+                                        <input type="checkbox" value="" id="table_checkbox_all"/>
                                         <label for="table_checkbox_all">&nbsp;</label>
                                     </div>
                                 </th>

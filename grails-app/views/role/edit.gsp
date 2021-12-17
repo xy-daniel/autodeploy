@@ -4,11 +4,11 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -23,6 +23,7 @@
     <asset:stylesheet href="ztree/css/metroStyle/metroStyle.css"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -65,7 +66,8 @@
                     <!-- begin panel-heading -->
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                               data-click="panel-expand"><i class="fa fa-expand"></i></a>
                         </div>
                         <h4 class="panel-title">修改角色信息</h4>
                     </div>
@@ -73,7 +75,8 @@
                     <!-- begin panel-body -->
                     <div class="panel-body">
                         <!-- begin wizard-form -->
-                        <form id="form-roleEdit" name="form-roleEdit" class="form-control-with-bg form-horizontal" data-parsley-validate="true">
+                        <form id="form-roleEdit" name="form-roleEdit" class="form-control-with-bg form-horizontal"
+                              data-parsley-validate="true">
                             <!-- begin row -->
                             <div class="row">
                                 <!--角色id-->
@@ -85,7 +88,9 @@
                                     <legend class="no-border f-w-700 p-b-0 m-t-0 m-b-20 f-s-16 text-inverse">修改角色信息请修改以下内容</legend>
                                     <!-- begin form-group--角色排序 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="sequence">排序 <span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right" for="sequence">排序 <span
+                                                class="text-danger">*</span></label>
+
                                         <div class="col-md-6">
                                             <input type="text" name="sequence" id="sequence"
                                                    class="form-control" value="${role.sequence}"
@@ -95,30 +100,38 @@
                                     <!-- end form-group--角色排序 -->
                                     <!-- begin form-group--角色名称 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="authority">角色名称 <span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right" for="authority">角色名称 <span
+                                                class="text-danger">*</span></label>
+
                                         <div class="col-md-6">
                                             <input type="text" name="authority" id="authority"
                                                    class="form-control" value="${role.authority}"
                                                    data-parsley-required="true" data-parsley-required-message="此项不能为空"
-                                                   data-parsley-remote data-parsley-remote-validator='checkauthority' data-parsley-remote-message="输入的角色名称已存在"/>
+                                                   data-parsley-remote data-parsley-remote-validator='checkauthority'
+                                                   data-parsley-remote-message="输入的角色名称已存在"/>
                                         </div>
                                     </div>
                                     <!-- end form-group--角色名称 -->
                                     <!-- begin form-group--描述 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="remark">描述 <span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right" for="remark">描述 <span
+                                                class="text-danger">*</span></label>
+
                                         <div class="col-md-6">
                                             <input type="text" id="remark" name="remark"
                                                    class="form-control" value="${role.remark}"
                                                    data-parsley-required="true" data-parsley-required-message="此项不能为空"
-                                                   data-parsley-remote data-parsley-remote-validator='checkremark' data-parsley-remote-message="描述已存在"/>
+                                                   data-parsley-remote data-parsley-remote-validator='checkremark'
+                                                   data-parsley-remote-message="描述已存在"/>
                                         </div>
                                     </div>
                                     <!-- end form-group--描述 -->
 
                                     <!-- begin form-group--功能权限菜单 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="remark">功能权限 <span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right" for="remark">功能权限 <span
+                                                class="text-danger">*</span></label>
+
                                         <div class="col-md-6">
                                             <ul id="menuTree" class="ztree"></ul>
                                         </div>
@@ -129,6 +142,7 @@
                                     <!-- begin form-group--提交按钮 -->
                                     <div class="form-group row m-b-10">
                                         <label class="col-md-3 col-form-label">&nbsp;</label>
+
                                         <div class="col-md-6">
                                             <input type="submit" class="btn btn-primary" value="修改"/>
                                         </div>

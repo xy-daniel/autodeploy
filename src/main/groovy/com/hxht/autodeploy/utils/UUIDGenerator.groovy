@@ -1,7 +1,7 @@
 package com.hxht.autodeploy.utils
 
 /**
- * sakuri创建于2017/5/8.
+ * daniel
  */
 class UUIDGenerator {
     /**

@@ -28,11 +28,11 @@ appender('STDOUT', ConsoleAppender) {
                         '%m%n%wex' // Message
     }
 }
-
+//SizeAndTimeBasedFNATP is deprecated. Use SizeAndTimeBasedRollingPolicy instead
 def targetDir = BuildSettings.TARGET_DIR
 if (Environment.isDevelopmentMode() && targetDir != null) {
     appender("FULL_STACKTRACE", FileAppender) {
-        file = "${targetDir}/tc/stacktrace.log"
+        file = "${targetDir}/auto/stacktrace.log"
         append = true
         encoder(PatternLayoutEncoder) {
             pattern = "%level %logger - %msg%n"
@@ -42,7 +42,7 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
 }
 
 //定义当前目录
-def HOME_DIR = "/usr/local/techcrt_logs"
+def HOME_DIR = "/usr/local/auto_logs"
 
 //ERROR级别的日志
 appender("ERROR", RollingFileAppender) {
@@ -65,7 +65,7 @@ appender("ERROR", RollingFileAppender) {
     }
     //指定日志生成格式
     rollingPolicy(TimeBasedRollingPolicy) {
-        fileNamePattern = "${HOME_DIR}/logs/tc/%d{yyyy-MM-dd}_ERROR_%i.log"
+        fileNamePattern = "${HOME_DIR}/logs/auto/%d{yyyy-MM-dd}_ERROR_%i.log"
         maxHistory = 15 //日志最长保留30天
         timeBasedFileNamingAndTriggeringPolicy(SizeAndTimeBasedFNATP) {
             maxFileSize = "50MB"
@@ -98,7 +98,7 @@ appender("INFO", RollingFileAppender) {
     //指定日志生成格式，文件名以日期命名，生成每日日志文件，如果超出大小则另起文件存放
     //%d{yyyy-MM-dd}-日期，%i-用于记录每日日志个数
     rollingPolicy(TimeBasedRollingPolicy) {
-        fileNamePattern = "${HOME_DIR}/logs/tc/%d{yyyy-MM-dd}_INFO_%i.log"
+        fileNamePattern = "${HOME_DIR}/logs/auto/%d{yyyy-MM-dd}_INFO_%i.log"
         maxHistory = 30 //日志最长保留30天
         timeBasedFileNamingAndTriggeringPolicy(SizeAndTimeBasedFNATP) {
             maxFileSize = "10MB" //单个日志文件最大为10MB
@@ -130,7 +130,7 @@ appender("DEBUG", RollingFileAppender) {
     //指定日志生成格式，文件名以日期命名，生成每日日志文件，如果超出大小则另起文件存放
     //%d{yyyy-MM-dd}-日期，%i-用于记录每日日志个数
     rollingPolicy(TimeBasedRollingPolicy) {
-        fileNamePattern = "${HOME_DIR}/logs/tc/%d{yyyy-MM-dd}_DEBUG_%i.log"
+        fileNamePattern = "${HOME_DIR}/logs/auto/%d{yyyy-MM-dd}_DEBUG_%i.log"
         maxHistory = 30 //日志最长保留30天
         timeBasedFileNamingAndTriggeringPolicy(SizeAndTimeBasedFNATP) {
             maxFileSize = "10MB" //单个日志文件最大为10MB
@@ -144,4 +144,4 @@ appender("DEBUG", RollingFileAppender) {
 
 //将指定级别的日志输出到日志文件中
 //日志级别从高到地低 OFF 、 FATAL 、 ERROR 、 WARN 、 INFO 、 DEBUG 、 TRACE 、 ALL
-root(INFO, ['STDOUT','INFO','ERROR','DEBUG'])
+root(INFO, ['STDOUT', 'INFO', 'ERROR', 'DEBUG'])

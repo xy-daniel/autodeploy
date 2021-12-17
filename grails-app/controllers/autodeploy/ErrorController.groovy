@@ -1,9 +1,8 @@
 package autodeploy
 
-import com.hxht.techcrt.Resp
-import com.hxht.techcrt.enums.RespType
+import com.hxht.autodeploy.enums.Resp
+import com.hxht.autodeploy.enums.RespType
 import org.grails.web.errors.GrailsWrappedRuntimeException
-
 
 class ErrorController {
 
@@ -11,7 +10,7 @@ class ErrorController {
         def accept = request.getHeader("accept")
         if (!(accept?.indexOf("json") > -1)) {
             render(view: '/error')
-        }else {
+        } else {
             response.setContentType("application/json; charset=utf-8")
             response.status = 200
             def exception = request["exception"] as GrailsWrappedRuntimeException
@@ -20,9 +19,9 @@ class ErrorController {
                 msg = exception.message
             }
 
-            if(msg && msg.indexOf("证书无效") > -1){
+            if (msg && msg.indexOf("证书无效") > -1) {
                 render Resp.toJson(RespType.ACCOUNT_EXPIRED, msg)
-            }else{
+            } else {
                 render Resp.toJson(RespType.FAIL, msg)
             }
 

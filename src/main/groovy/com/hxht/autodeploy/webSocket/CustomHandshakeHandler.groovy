@@ -1,6 +1,5 @@
 package com.hxht.autodeploy.webSocket
 
-
 import grails.gorm.transactions.Transactional
 import org.springframework.http.server.ServerHttpRequest
 import org.springframework.web.socket.WebSocketHandler
@@ -19,10 +18,9 @@ class CustomHandshakeHandler extends DefaultHandshakeHandler {
         def username = request.getHeaders().get("username")?.get(0)
         def password = request.getHeaders().get("password")?.get(0)
         if (username && password) {
-            return new StompPrincipal(username,password)
+            return new StompPrincipal(username, password)
         } else {
             return null
         }
-
     }
 }

@@ -1,29 +1,7 @@
-/**
- * Created by sakuri on 2019/8/13.
- */
 ;-function (window) {
-    'use strict';
-    var ready = {};
-    var option = {};
-    var init = function () {
-        init_ready();//加载预设变量
-        init_event();//初始化页面事件
-    };
-
-    function init_ready() {//初始化预设值
-    }
-
-    function init_event() {//初始化页面事件
-        core.parsley();
-        core.selectpicker();
-        //前端校验账号是否已经被注册
-        core.validateUserName();
-        //表单提交
-        core.ajax_form();
-    }
 
     //内部核心属性
-    var core = {
+    const core = {
         parsley : function(){
             $('form').parsley({
                 errorsContainer: function(pEle) {
@@ -31,15 +9,12 @@
                 }
             });
         },
-        selectpicker: function () {
-            $('.selectpicker').selectpicker('render');
-        },
         validateUserName: function(){
             $("#username").keyup(function () {
                 window.Parsley.addAsyncValidator('checkname', function (xhr) {
                     console.log(JSON.parse(xhr.responseText).data);
-                    var usernamePo = $("#usernamePo").val();
-                    var username = $("#username").val();
+                    const usernamePo = $("#usernamePo").val();
+                    const username = $("#username").val();
                     if (username!==usernamePo){
                         return JSON.parse(xhr.responseText).data === 0;
                     }
@@ -48,8 +23,8 @@
             });
             window.Parsley.addAsyncValidator('checkname', function (xhr) {
                 console.log(JSON.parse(xhr.responseText).data);
-                var usernamePo = $("#usernamePo").val();
-                var username = $("#username").val();
+                const usernamePo = $("#usernamePo").val();
+                const username = $("#username").val();
                 if (username!==usernamePo){
                     return JSON.parse(xhr.responseText).data === 0;
                 }
@@ -78,7 +53,7 @@
                             type: 'error',
                             confirmButtonText:'确 认'
                         },function () {
-                            window.location.href= contextPath + "user/edit/"+$("[name='userId']").val();
+                            window.location.reload()
                         });
                     }
                 },
@@ -89,14 +64,30 @@
                         type: 'error',
                         confirmButtonText:'确 认'
                     },function () {
-                        window.location.href= contextPath + "user/edit/"+$("[name='userId']").val();
+                        window.location.reload()
                     });
                 }
             });
         }
     };
+    'use strict';
+    const ready = {};
+    const option = {};
+    const init = function () {
+        init_ready();//加载预设变量
+        init_event();//初始化页面事件
+    };
+
+    function init_ready() {//初始化预设值
+    }
+
+    function init_event() {//初始化页面事件
+        core.parsley();
+        core.validateUserName();
+        core.ajax_form();
+    }
     //对外公开的方法
-    var page = {};
+    const page = {};
     init();
     window.p = page;
 }(window);

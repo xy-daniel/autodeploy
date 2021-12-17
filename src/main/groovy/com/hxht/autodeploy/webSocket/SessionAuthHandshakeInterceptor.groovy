@@ -15,7 +15,7 @@ class SessionAuthHandshakeInterceptor implements HandshakeInterceptor {
 //        if(session == null || session.getAttribute(Constants.SESSION_USER) == null){
 //            println("websocket权限拒绝")
 //            return false
-            // throw new CmiException("websocket权限拒绝")
+        // throw new CmiException("websocket权限拒绝")
 //        }
 //        println 11
 //        attributes.put(Constants.WEBSOCKET_USER_KEY, session.getAttribute(Constants.SESSION_USER))

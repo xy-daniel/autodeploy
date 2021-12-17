@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 8]> <html class="ie8" lang="zh"> <![endif]-->
 <!--[if !IE]><!-->
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -21,6 +21,7 @@
     <asset:stylesheet href="treegrid/jquery.treegrid.css"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -37,7 +38,7 @@
     <!-- end #header -->
 
     <!-- begin #sidebar -->
-    <g:render template="/layouts/base_sidebar" model="[active: 30108]"/>
+    <g:render template="/layouts/base_sidebar" model="[active: 50003]"/>
     <!-- end #sidebar -->
 
     <!-- begin #content -->
@@ -59,7 +60,8 @@
                     <!-- begin panel-heading -->
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                               data-click="panel-expand"><i class="fa fa-expand"></i></a>
                         </div>
                         <h4 class="panel-title">系统功能列表</h4>
                     </div>
@@ -68,14 +70,12 @@
                     <div class="panel-body">
                         <div class="table-btn-row m-b-15">
                             <sec:ifAnyGranted roles='ROLE_SUPER,ROLE_ADMIN,ROLE_/menu/add'>
-                                <g:link controller="menu" action="add" class="btn btn-sm btn-inverse btn-add"><i class="fa fa-plus m-r-5"></i> 添加新功能</g:link>
-                             </sec:ifAnyGranted>
-                         %{--   <sec:ifAnyGranted roles='ROLE_SUPER'>
-                                <a href="javascript:void(0);" id="checkedBtn" class="btn btn-sm btn-inverse btn-del"><i class="fa fa-times m-r-5"></i> 删除所选功能</a>
-                            </sec:ifAnyGranted>--}%
+                                <g:link controller="menu" action="add" class="btn btn-sm btn-inverse btn-add"><i
+                                        class="fa fa-plus m-r-5"></i> 添加功能</g:link>
+                            </sec:ifAnyGranted>
                         </div>
-                        <table id="menuTreeTable" data-mobile-responsive="true" data-click-to-select="true" style="width:100%">
-                        </table>
+                        <table id="menuTreeTable" class="width-full" data-mobile-responsive="true"
+                               data-click-to-select="true">
                         </table>
                     </div>
                     <!-- end panel-body -->

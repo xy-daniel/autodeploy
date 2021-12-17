@@ -4,11 +4,11 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, menu-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, menu-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -22,6 +22,7 @@
     <asset:stylesheet href="select2/dist/css/select2.min.css"/>
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -64,7 +65,8 @@
                     <!-- begin panel-heading -->
                     <div class="panel-heading">
                         <div class="panel-heading-btn">
-                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                            <a href="javascript:void(0);" class="btn btn-xs btn-icon btn-circle btn-default"
+                               data-click="panel-expand"><i class="fa fa-expand"></i></a>
                         </div>
                         <h4 class="panel-title">修改系统功能信息</h4>
                     </div>
@@ -72,7 +74,8 @@
                     <!-- begin panel-body -->
                     <div class="panel-body">
                         <!-- begin wizard-form -->
-                        <form id="" name="form-menuedit" class="form-control-with-bg form-horizontal" data-parsley-validate="true">
+                        <form id="" name="form-menuedit" class="form-control-with-bg form-horizontal"
+                              data-parsley-validate="true">
                             <!-- begin row -->
                             <div class="row">
                                 <input type="hidden" name="menuId" value="${menu.id}"/>
@@ -82,7 +85,9 @@
 
                                     <!-- begin form-group--功能名称 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="name">名称<span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right" for="name">名称<span
+                                                class="text-danger">*</span></label>
+
                                         <div class="col-md-6">
                                             <input type="text" name="name" id="name" class="form-control"
                                                    value="${menu.name}" data-parsley-required="true"
@@ -92,7 +97,9 @@
                                     <!-- end form-group--功能名称 -->
                                     <!-- begin form-group--功能路径 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right" for="name">路径 &nbsp;&nbsp;</label>
+                                        <label class="col-md-3 col-form-label text-md-right"
+                                               for="name">路径 &nbsp;&nbsp;</label>
+
                                         <div class="col-md-6">
                                             <input type="text" name="url" id="url" class="form-control"
                                                    value="${menu.url}"/>
@@ -102,7 +109,8 @@
                                     <!-- end form-group--功能路径 -->
                                     <!-- begin form-group--类型 -->
                                     <div class="form-group row m-b-10">
-                                        <label class="col-md-3 col-form-label text-md-right">类型<span class="text-danger">*</span></label>
+                                        <label class="col-md-3 col-form-label text-md-right">类型<span
+                                                class="text-danger">*</span></label>
 
                                         <div class="col-md-6">
                                             <select class="form-control selectpicker" data-size="10"
@@ -122,11 +130,15 @@
                                     <!-- begin form-group -->
                                     <div class="form-group row m-b-10">
                                         <label class="col-md-3 col-form-label text-md-right">上级类型 &nbsp;&nbsp;</label>
+
                                         <div class="col-md-6">
-                                            <select class="form-control selectpicker" data-size="10" data-live-search="true" data-style="btn-white" id="parentId" name="parentId">
+                                            <select class="form-control selectpicker" data-size="10"
+                                                    data-live-search="true" data-style="btn-white" id="parentId"
+                                                    name="parentId">
                                                 <option value="0">请选择</option>
                                                 <g:each in="${menuList}" var="mu" status="i">
-                                                    <option value="${mu.id}" <g:if test="${mu.id == menu.parentId}">selected</g:if> >
+                                                    <option value="${mu.id}"
+                                                            <g:if test="${mu.id == menu.parentId}">selected</g:if>>
                                                         ${mu.name}
                                                     </option>
                                                 </g:each>
@@ -138,6 +150,7 @@
                                     <!-- begin form-group--提交按钮 -->
                                     <div class="form-group row m-b-10">
                                         <label class="col-md-3 col-form-label">&nbsp;</label>
+
                                         <div class="col-md-6">
                                             <input type="submit" class="btn btn-primary" value="修改"/>
                                         </div>

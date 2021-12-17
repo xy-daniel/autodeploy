@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "grails.codegen.defaultPackage",
+      "type": "java.lang.String",
+      "description": "Description for grails.codegen.defaultPackage."
+    },
+    {
+      "name": "server.servlet.session.timeout",
+      "type": "java.lang.String",
+      "description": "Description for server.servlet.session.timeout."
+    }
+  ] }

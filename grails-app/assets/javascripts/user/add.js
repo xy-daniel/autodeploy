@@ -1,31 +1,7 @@
-/**
- * Created by sakuri on 2019/8/13.
- */
 ;-function (window) {
-    'use strict';
-    var ready = {};
-    var option = {};
-    var init = function () {
-        init_ready();//加载预设变量
-        init_event();//初始化页面事件
-    };
-
-    function init_ready() {//初始化预设值
-    }
-
-    function init_event() {//初始化页面事件
-        //前端校验
-        core.parsley();
-        //权限选择格式化
-        core.selectpicker();
-        //validate username
-        core.validateUserName();
-        //表单提交
-        core.ajax_form();
-    }
 
     //内部核心属性
-    var core = {
+    const core = {
         parsley : function(){
             $("#form-useradd").parsley({
                 errorsContainer: function(pEle) {
@@ -96,8 +72,29 @@
             });
         }
     };
+    'use strict';
+    const ready = {};
+    const option = {};
+    const init = function () {
+        init_ready();//加载预设变量
+        init_event();//初始化页面事件
+    };
+
+    function init_ready() {//初始化预设值
+    }
+
+    function init_event() {//初始化页面事件
+        //前端校验
+        core.parsley();
+        //权限选择格式化
+        core.selectpicker();
+        //validate username
+        core.validateUserName();
+        //表单提交
+        core.ajax_form();
+    }
     //对外公开的方法
-    var page = {};
+    const page = {};
     init();
     window.p = page;
 

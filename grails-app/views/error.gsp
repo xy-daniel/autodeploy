@@ -6,11 +6,11 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维系统</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -20,6 +20,7 @@
 
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body class="pace-top">
 <!-- begin #page-loader -->
 <div id="page-loader" class="fade show"><span class="spinner"></span></div>
@@ -30,17 +31,20 @@
     <!-- begin error -->
     <div class="error">
         <div class="error-code m-b-10">${(request.getAttribute('javax.servlet.error.status_code') as int)}</div>
+
         <div class="error-content jcm-error">
             <div class="error-message">${HttpStatus.valueOf(request.getAttribute('javax.servlet.error.status_code') as int).getReasonPhrase()}</div>
+
             <div>
                 <g:link controller="index" class="btn btn-success p-l-20 p-r-20">Go Home</g:link>
             </div>
+
             <div class="error-desc m-b-30">
                 <g:if test="${Throwable.isInstance(exception)}">
-                    <tc:renderException exception="${exception}" />
+                    <auto:renderException exception="${exception}"/>
                 </g:if>
                 <g:else test="${request.getAttribute('javax.servlet.error.exception')}">
-                    <tc:renderException exception="${request.getAttribute('javax.servlet.error.exception')}" />
+                    <auto:renderException exception="${request.getAttribute('javax.servlet.error.exception')}"/>
                 </g:else>
             </div>
         </div>

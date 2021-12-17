@@ -4,11 +4,11 @@
 <html>
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <title>科技法庭管理系统</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
+    <meta charset="utf-8"/>
+    <title>自动化运维平台</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
 
     <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <g:render template="/layouts/base_head"/>
@@ -18,6 +18,7 @@
 
     <!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
+
 <body>
 <!-- begin #page-loader -->
 <g:render template="/layouts/base_loader"/>
@@ -40,7 +41,8 @@
     <!-- begin #content -->
     <div id="content" class="content">
         <!-- begin page-header -->
-        <h1 class="page-header">空白 <small>header small text goes here... <g:meta name="info.app.grailsVersion"/></small></h1>
+        <h1 class="page-header">空白 <small>header small text goes here... <g:meta name="info.app.grailsVersion"/></small>
+        </h1>
         <!-- end page-header -->
         <!-- begin row -->
         <div class="row">
